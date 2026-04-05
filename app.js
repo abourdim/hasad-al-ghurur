@@ -465,7 +465,6 @@ function earnBadge(id) {
 }
 function updateXPDisplay() {
   const el = document.getElementById('xpDisplay');
-  if (!el) return;
   if (el) {
     const xp = getXP();
     const level = getLevel();
@@ -524,9 +523,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function initSplash() {
   let count = 5;
   const el = document.getElementById('splashCount');
-  if (!el) return;
   const featuresEl = document.getElementById('splashFeatures');
-  if (!featuresEl) return;
   if (featuresEl) {
     const features = T[lang].splashFeatures;
     featuresEl.innerHTML = features.map((f, i) =>
@@ -541,7 +538,6 @@ function initSplash() {
 }
 function dismissSplash() {
   const s = document.getElementById('splash');
-  if (!s) return;
   if (s) { s.classList.add('hidden'); setTimeout(() => s.style.display = 'none', 500); }
   playSound('click');
 }
@@ -568,7 +564,6 @@ function setLang(l) {
   renderHome(); renderLessons(); renderHistory(); renderQuiz(); renderMeter(); renderAbout(); renderHelp(); renderDuas();
   updateXPDisplay();
   const featuresEl = document.getElementById('splashFeatures');
-  if (!featuresEl) return;
   if (featuresEl) {
     featuresEl.innerHTML = T[l].splashFeatures.map((f, i) =>
       `<div class="splash-feature" style="animation-delay:${0.3 + i * 0.3}s">${f}</div>`
@@ -583,7 +578,6 @@ function setTheme(t) {
   localStorage.setItem('hg-theme', t);
   const idx = themes.indexOf(t);
   const el = document.getElementById('themeIcon');
-  if (!el) return;
   if (el) el.textContent = themeIcons[idx];
 }
 function cycleTheme() {
@@ -747,9 +741,7 @@ function renderQuiz() {
 function renderQuizQuestion() {
   const t = T[lang];
   const container = document.getElementById('quizContainer');
-  if (!container) return;
   const result = document.getElementById('quizResult');
-  if (!result) return;
   if (result) result.classList.add('hidden');
 
   if (quizState.current >= QUIZ_DATA.length) {
@@ -809,7 +801,6 @@ function selectQuizAnswer(idx) {
   });
 
   const feedback = document.getElementById('quizFeedback');
-  if (!feedback) return;
   if (idx === correct) {
     quizState.score++;
     feedback.innerHTML = `<span class="feedback-correct">${t.correct}</span>`;
@@ -858,7 +849,6 @@ function useSheikh() {
   quizState.lifelines.sheikh = false;
   const q = QUIZ_DATA[quizState.current][lang];
   const hintEl = document.getElementById('quizHint');
-  if (!hintEl) return;
   if (hintEl) {
     hintEl.textContent = '📞 ' + q.hint;
     hintEl.classList.remove('hidden');
@@ -871,7 +861,6 @@ function useSheikh() {
 function renderMeter() {
   const t = T[lang];
   const container = document.getElementById('meterContainer');
-  if (!container) return;
   container.innerHTML = METER_QUESTIONS.map((q, i) => `
     <div class="meter-question scroll-reveal" id="meter-q-${i}">
       <div class="meter-q-text">${i+1}. ${q[lang]}</div>
@@ -923,7 +912,6 @@ function submitMeter() {
   }
   addXP(20);
   const result = document.getElementById('meterResult');
-  if (!result) return;
   result.classList.remove('hidden');
   result.innerHTML = `
     <div class="meter-result-card ${meterClass}">
@@ -1079,16 +1067,13 @@ function initKeyboardNav() {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       const helpPanel = document.getElementById('helpPanel');
-      if (!helpPanel) return;
       if (!helpPanel.classList.contains('hidden')) { toggleHelp(); return; }
       const duaPanel = document.getElementById('duaPanel');
-      if (!duaPanel) return;
       if (!duaPanel.classList.contains('hidden')) { toggleDuaPanel(); return; }
       document.querySelectorAll('.principle-card.open').forEach(c => c.classList.remove('open'));
     }
     if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
       const lessonsPanel = document.getElementById('panel-lessons');
-      if (!lessonsPanel) return;
       if (!lessonsPanel || !lessonsPanel.classList.contains('active')) return;
       if (document.activeElement && document.activeElement.id === 'lessonsSearch') return;
       e.preventDefault();
@@ -1122,14 +1107,11 @@ function toggleDuaPanel() {
 }
 function showToast(msg) {
   const t = document.getElementById('toast');
-  if (!t) return;
   const m = document.getElementById('toastMsg');
-  if (!m) return;
   if (t && m) { m.textContent = msg; t.style.display = 'block'; setTimeout(() => t.style.display = 'none', 2500); }
 }
 function initScrollTop() {
   const btn = document.getElementById('scrollTop');
-  if (!btn) return;
   window.addEventListener('scroll', () => {
     if (btn) btn.classList.toggle('visible', window.scrollY > 300);
   });
