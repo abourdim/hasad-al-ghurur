@@ -145,7 +145,7 @@ const T = {
 const LESSONS = [
   {
     id:1, emoji:'🏛️',
-    ar:{title:'الغرور يسبق السقوط',desc:'الأمة التي تغتر بقوتها وتنسى الله تسقط حتماً. هزيمة ١٩٦٧ لم تكن مفاجئة — بل كانت نتيجة طبيعية لسنوات من الغرور والبعد عن المنهج الإلهي.',verse:'وَلَا تَهِنُوا وَلَا تَحْزَنُوا وَأَنتُمُ الْأَعْلَوْنَ إِن كُنتُم مُّؤْمِنِينَ',verseRef:'آل عمران: ١٣٩',action:'راجع نفسك: هل تعتمد على الله أم على قوتك فقط؟'},
+    ar:{title:'الغرور يسبق السقوط',desc:'كتب الغزالي هذا الكتاب بعد هزيمة ١٩٦٧. يرى أن الهزيمة عقوبة إلهية على غرور الدولة الناصرية التي ابتعدت عن الله. الحلول المادية والعسكرية ستفشل ما لم يسبقها الإصلاح الروحي والأخلاقي.',verse:'وَلَا تَهِنُوا وَلَا تَحْزَنُوا وَأَنتُمُ الْأَعْلَوْنَ إِن كُنتُم مُّؤْمِنِينَ',verseRef:'آل عمران: ١٣٩',action:'راجع نفسك: هل تعتمد على الله أم على قوتك فقط؟'},
     en:{title:'Arrogance Precedes the Fall',desc:'A nation that prides itself on its strength while forgetting God will inevitably fall. The 1967 defeat was not a surprise — it was the natural result of years of arrogance and straying from divine guidance.',verse:'Do not weaken and do not grieve, for you will be superior if you are believers',verseRef:'Aal-Imran: 139',action:'Reflect: do you rely on God or only on your own strength?'},
     fr:{title:'L\'Orgueil Precede la Chute',desc:'Une nation qui s\'enorgueillit de sa force en oubliant Dieu tombera inevitablement. La defaite de 1967 n\'etait pas une surprise — c\'etait le resultat naturel d\'annees d\'orgueil.',verse:'Ne faiblissez pas et ne vous affligez pas, car vous etes les plus eleves si vous etes croyants',verseRef:'Aal-Imran: 139',action:'Reflechissez : comptez-vous sur Dieu ou seulement sur votre force ?'}
   },
