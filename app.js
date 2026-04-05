@@ -608,7 +608,7 @@ function renderHome() {
   const dayIdx = new Date().getDate() % LESSONS.length;
   const p = LESSONS[dayIdx];
   const pd = p[lang];
-  document.getElementById('dailyCard').innerHTML = `
+  (document.getElementById('dailyCard')||{}).innerHTML= `
     <div class="daily-label">${t.dailyLabel}</div>
     <div class="daily-title">${pd.title}</div>
     <div class="daily-body">${pd.desc}</div>
@@ -619,11 +619,11 @@ function renderHome() {
   // Badges display
   const earned = getEarnedBadges();
   const badgesHtml = BADGES.map(b => `<span class="badge-item ${earned.includes(b.id)?'earned':''}" title="${b[lang]}">${b.emoji}</span>`).join('');
-  document.getElementById('badgesDisplay').innerHTML = `<div class="badges-label">${t.badgesLabel}</div><div class="badges-row">${badgesHtml}</div>`;
+  (document.getElementById('badgesDisplay')||{}).innerHTML= `<div class="badges-label">${t.badgesLabel}</div><div class="badges-row">${badgesHtml}</div>`;
   // Streak
   const streak = getStreak();
   const streakHtml = streak > 0 ? `<div class="streak-badge">🔥 ${streak} ${t.streakMsg}</div>` : '';
-  document.getElementById('streakDisplay').innerHTML = streakHtml;
+  (document.getElementById('streakDisplay')||{}).innerHTML= streakHtml;
   // Home grid
   const sections = [
     {icon:'📜',tab:'lessons',title:t.tabLessons,desc:lang==='ar'?'٢٠ درساً تاريخياً':lang==='fr'?'20 lecons historiques':'20 historical lessons'},
@@ -632,7 +632,7 @@ function renderHome() {
     {icon:'📊',tab:'meter',title:t.tabMeter,desc:lang==='ar'?'قيّم تواضعك':lang==='fr'?'Evaluez votre humilite':'Assess your humility'},
     {icon:'📖',tab:'about',title:t.tabAbout,desc:lang==='ar'?'عن الكتاب والمؤلف':lang==='fr'?'Le livre et l\'auteur':'Book & author'},
   ];
-  document.getElementById('homeGrid').innerHTML = sections.map(s => `
+  (document.getElementById('homeGrid')||{}).innerHTML= sections.map(s => `
     <div class="home-card" onclick="document.querySelector('[data-tab=${s.tab}]').click()">
       <span class="hc-icon">${s.icon}</span>
       <div class="hc-title">${s.title}</div>
@@ -671,7 +671,7 @@ function renderLessons() {
       </div>
     </div>`;
   }).join('');
-  document.getElementById('lessonsContainer').innerHTML = searchBar + cards;
+  (document.getElementById('lessonsContainer')||{}).innerHTML= searchBar + cards;
 }
 
 function toggleLesson(id) {
@@ -717,7 +717,7 @@ async function shareLesson(idx) {
 
 // ═══════════════ RENDER: HISTORY ═══════════════
 function renderHistory() {
-  document.getElementById('historyContainer').innerHTML = HISTORY_DATA.map(h => {
+  (document.getElementById('historyContainer')||{}).innerHTML= HISTORY_DATA.map(h => {
     const d = h[lang];
     return `
     <div class="history-card scroll-reveal">
@@ -968,7 +968,7 @@ function renderAbout() {
     }
   };
   const a = about[lang];
-  document.getElementById('aboutContainer').innerHTML = `
+  (document.getElementById('aboutContainer')||{}).innerHTML= `
     <div class="about-disclaimer">
       <div class="about-disclaimer-title">${a.disclaimerTitle}</div>
       <p>${a.disclaimer}</p>
@@ -1020,7 +1020,7 @@ function renderHelp() {
       {title:'🤝 Contribuer',body:'GitHub : github.com/abourdim/hasad-al-ghurur'},
     ]
   };
-  document.getElementById('helpBody').innerHTML = help[lang].map(h => `
+  (document.getElementById('helpBody')||{}).innerHTML= help[lang].map(h => `
     <div class="help-item">
       <div class="help-item-title">${h.title}</div>
       <div>${h.body}</div>
@@ -1030,7 +1030,7 @@ function renderHelp() {
 
 // ═══════════════ RENDER: DUAS ═══════════════
 function renderDuas() {
-  document.getElementById('duaPanelContent').innerHTML = DUAS.map(d => {
+  (document.getElementById('duaPanelContent')||{}).innerHTML= DUAS.map(d => {
     const dd = d[lang];
     return `
     <div class="dua-item">
