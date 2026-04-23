@@ -741,6 +741,7 @@ function renderQuiz() {
 function renderQuizQuestion() {
   const t = T[lang];
   const container = document.getElementById('quizContainer');
+  if (!container) return;
   const result = document.getElementById('quizResult');
   if (result) result.classList.add('hidden');
 
@@ -861,6 +862,7 @@ function useSheikh() {
 function renderMeter() {
   const t = T[lang];
   const container = document.getElementById('meterContainer');
+  if (!container) return;
   container.innerHTML = METER_QUESTIONS.map((q, i) => `
     <div class="meter-question scroll-reveal" id="meter-q-${i}">
       <div class="meter-q-text">${i+1}. ${q[lang]}</div>
